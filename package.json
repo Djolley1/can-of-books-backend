@@ -1,0 +1,21 @@
+{
+    "name": "can-of-books-backend",
+    "version": "1.0.0",
+    "description": "Backend Server",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "city-explorer-api"
+    },
+    "author": "Demarquies",
+    "license": "ISC",
+    "dependencies": {
+      "axios": "^1.6.8",
+      "cors": "^2.8.5",
+      "dotenv": "^16.4.5",
+      "express": "^4.19.2"
+    }
+  }
