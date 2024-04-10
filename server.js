@@ -18,6 +18,7 @@ app.get('/', (request, response) => {
 
 app.get('/books', handleGetBooks);
 app.post('/books', handleCreateBook);
+app.put('/books/:id', handleUpdateBook);
 app.delete('/books/:id', handleDeleteBook);
 app.get('/books/seed', seedDatabase);
 app.get('/books/nuke', emptyDatabase);
@@ -51,6 +52,15 @@ async function handleCreateBook(request, response) {
   } catch (error) {
     response.status(500).json({ message: error.message });
   }
+}
+
+async function handleUpdateBook(request, response) {
+  const id = request.params.id;
+  const updatedBookData = request.body;
+
+  const updatedBook = await Book.findByIdAndUpdate(id, updatedBookData, { new: true });
+
+  response.json(updatedBook);
 }
 
 async function handleDeleteBook(request, response) {
