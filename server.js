@@ -54,9 +54,10 @@ async function handleCreateBook(request, response) {
 }
 
 async function handleDeleteBook(request, response) {
+  console.log('request params:', request.params);
+  const id = request.params.id;
+  console.log('book id:', id);
   try {
-    const id = request.params._id;
-    console.log(id);
     const deletedBook = await Book.findByIdAndDelete(id);
     response.json(deletedBook);
   } catch (error) {
